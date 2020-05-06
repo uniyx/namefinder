@@ -34,6 +34,10 @@ def find():
 
     print("")
 
-read()
-find()
-find()
+def main():
+    read()
+    for i in range(len(List)):
+        find()
+
+if __name__ == "__main__":
+    main()
