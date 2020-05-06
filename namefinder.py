@@ -10,10 +10,10 @@ def read():
     rel_path = "words.txt"
     path = os.path.join(script_dir, rel_path)
 
-    with open(path, 'r') as f:
-        for line in f:
-            if line[-1] == '/n':
-                line = line[:-1] #Removes newline char  "/n"
+    with open(path, 'r') as file:
+        for line in file:
+            if line[-1] == "\n":
+                line = line[:-1] #Removes newline char "\n"
                 List.append(line)
             else:
                 List.append(line)
@@ -37,11 +37,20 @@ def find():
 
     if(result != -1):
         print("AVAILABLE")
-        #print(f"Found at {result}")
+        write(List[locate-1])
     else:
         print("NOT AVAILABLE")
 
     print("")
+
+def write(word):
+    #finds path of output
+    script_dir = os.path.dirname(__file__)
+    rel_path = "output.txt"
+    path = os.path.join(script_dir, rel_path)
+
+    with open(path, 'a') as file:
+        file.write(word + '\n')
 
 def main():
     read()
