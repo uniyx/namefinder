@@ -1,10 +1,16 @@
 import requests as req
+import os
 
 List = []
 locate = 0
 
 def read():
-    with open('words.txt', 'r') as f:
+    #finds path of wordlist
+    script_dir = os.path.dirname(__file__)
+    rel_path = "words.txt"
+    path = os.path.join(script_dir, rel_path)
+
+    with open(path, 'r') as f:
         for line in f:
             line = line[:-1] #Removes newline char
             List.append(line)
