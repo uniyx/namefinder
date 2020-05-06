@@ -12,8 +12,11 @@ def read():
 
     with open(path, 'r') as f:
         for line in f:
-            line = line[:-1] #Removes newline char
-            List.append(line)
+            if line[-1] == '/n':
+                line = line[:-1] #Removes newline char  "/n"
+                List.append(line)
+            else:
+                List.append(line)
 
     print(List)
 
@@ -34,7 +37,7 @@ def find():
 
     if(result != -1):
         print("AVAILABLE")
-        print(f"Found at {result}")
+        #print(f"Found at {result}")
     else:
         print("NOT AVAILABLE")
 
